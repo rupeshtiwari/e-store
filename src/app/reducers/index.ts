@@ -39,13 +39,12 @@ export const getAllProducts = createSelector(
     fromItems.getAllItemIds,
     fromItems.getItemsEntities,
     fromPricing.getPriceEntities,
-    (ids, itemEntities, priceEntities) => {
-        ids.map(id => {
-            return {
+    (ids, itemEntities, priceEntities) =>
+        ids.map(id => (
+            {
                 id: id,
                 name: (itemEntities[id]) ? itemEntities[id].name : '',
                 price: (priceEntities[id]) ? priceEntities[id].price : ''
-            };
-        });
-    }
-)
+            })
+        )
+);
