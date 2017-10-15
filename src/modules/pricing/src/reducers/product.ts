@@ -10,7 +10,7 @@ export interface State {
 export const initialState: State = {
     ids: ['ice-cream-id'],
     entities: {
-        'ice-cream-id': new Product('1', '23')
+        'ice-cream-id': new Product('ice-cream-id', '23')
     }
 };
 

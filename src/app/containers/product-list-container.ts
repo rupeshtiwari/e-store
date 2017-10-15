@@ -14,7 +14,7 @@ import * as pricing from '../../modules/pricing/src';
         template:
         `<div *ngIf="products$ | async">
             <div  *ngFor="let product of products$ | async">
-             {{product|json}}
+              <label>{{product.name}}</label>
             </div>
         </div>
         `
@@ -24,12 +24,13 @@ import * as pricing from '../../modules/pricing/src';
 export class ProductListContainerComponent {
     products$;
     constructor(private store: Store<fromRoot.State>) {
-        this.products$ = store.select(fromRoot.getAllProducts)
+        this.products$ = store.select(fromRoot.getAllProducts).take(1);
+        this.products$.subscribe(p=>{
+            console.log('products',p);
+        })
     }
+
     trackProduct(index, product) {
         return (product) ? product.id : undefined;
-    }
-    onAddProduct(event) {
-
     }
 }

@@ -7,10 +7,18 @@ import * as fromPricing from '../../modules/pricing/src/reducers';
 // console.log all actions
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
     return function (state: State, action: any): State {
-        console.log('state', state);
+        console.log('------------------------');
+        console.log('stateBefore', state);
+
         console.log('action', action);
 
-        return reducer(state, action);
+        const newState = reducer(state, action);
+
+        console.log('stateAfter', newState);
+
+        console.log('------------------------');
+
+        return newState;
     };
 }
 
@@ -29,14 +37,14 @@ export interface State {
 
 export const getAllProducts = createSelector(
     fromItems.getAllItemIds,
-    fromItems.getItemsEntitiesState,
-    fromPricing.getPricingEntitiesState,
-    (ids, items, prices) => {
+    fromItems.getItemsEntities,
+    fromPricing.getPriceEntities,
+    (ids, itemEntities, priceEntities) => {
         ids.map(id => {
             return {
                 id: id,
-                name: items[id].name,
-                price: prices[id].price
+                name: (itemEntities[id]) ? itemEntities[id].name : '',
+                price: (priceEntities[id]) ? priceEntities[id].price : ''
             };
         });
     }

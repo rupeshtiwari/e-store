@@ -28,3 +28,8 @@ export const getPriceById = (id:string)=> createSelector(
     getPricingEntitiesState,
 (state:fromPricing.State) => fromPricing.getEntityById(state, id)
 );
+
+export const getPriceEntities = createSelector(
+    getPricingEntitiesState,
+    (state) => state.entities
+);

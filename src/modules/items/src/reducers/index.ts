@@ -21,6 +21,12 @@ export const getItemsEntitiesState = createSelector(
     (state) => state.items
 );
 
+
+export const getItemsEntities = createSelector(
+    getItemsEntitiesState,
+    (state) => state.entities
+);
+
 export const getAllItemIds = createSelector(
     getItemsEntitiesState,
     (state) => state.ids

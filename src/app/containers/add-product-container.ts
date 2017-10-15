@@ -9,9 +9,10 @@ import * as pricing from '../../modules/pricing/src';
 @Component(
     {
         selector: '<add-product-container></add-product-container>',
-        template: 
-        `<add-product (onAddProduct)="onAddProduct($event)"></add-product>
-        
+        template:
+        `
+        <!--<add-product (onAddProduct)="onAddProduct($event)"></add-product>-->
+        <add-product (onAddProduct)="onAddProduct($event)"></add-product>
         `
         , changeDetection: ChangeDetectionStrategy.OnPush
     }

@@ -1,3 +1,4 @@
+import { ItemsModule } from '../modules/items/src/items.module';
 import { ProductListContainerComponent } from './containers/product-list-container';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
@@ -18,7 +19,7 @@ import { environment } from '../environments/environment';
 import { PricingModule } from '../modules/pricing/src/pricing.module';
 import { reducers } from '../modules/pricing/src/reducers/index';
 import { AppComponent } from './app.component';
-import { AddProductComponent } from './components/add-product';
+import { AddProductComponent } from './components/add-product.component';
 import { AddProductContainerComponent } from './containers/add-product-container';
 import { metaReducers } from './reducers/index';
 
@@ -34,9 +35,9 @@ import { metaReducers } from './reducers/index';
     FormsModule,
     HttpModule,
     PricingModule,
+    ItemsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([])
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [],
   bootstrap: [AppComponent]
