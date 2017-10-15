@@ -20,7 +20,11 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@ngrx/effects": "^4.0.5",
+    "@ngrx/store": "^4.0.3",
+    "@ngrx/store-devtools": "^4.0.0",
     "core-js": "^2.4.1",
+    "ramda": "^0.25.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
@@ -29,18 +33,33 @@
     "@angular/compiler-cli": "^4.0.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
+    "@types/ramda": "github:types/npm-ramda#dist",
     "codelyzer": "~2.0.0",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
     "karma": "~1.4.1",
     "karma-chrome-launcher": "~2.1.1",
     "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
-    "typescript": "~2.2.0"
-  }
+    "typescript": "^2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roopkt/e-store.git"
+  },
+  "keywords": [
+    "ngrx4",
+    "angular4",
+    "microservices",
+    "compositeui"
+  ],
+  "bugs": {
+    "url": "https://github.com/roopkt/e-store/issues"
+  },
+  "homepage": "https://github.com/roopkt/e-store#readme"
 }

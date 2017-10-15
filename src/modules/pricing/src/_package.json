@@ -1,0 +1,14 @@
+{
+    "name": "pricing",
+    "version": "4.0.2",
+    "description": "Pricing info of products",
+   
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/roopkt/e-store.git"
+    },
+    "authors": [
+      "Rupesh Tiwari"
+    ],
+    "license": "MIT"
+  }
