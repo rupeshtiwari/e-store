@@ -1,5 +1,5 @@
 import { reducer } from './product';
-import { Add } from '../actions/product';
+import { CreateProduct } from '../actions/product';
 import { Product } from '../models/product';
 
 describe('Products Reducers', () => {
@@ -18,7 +18,7 @@ describe('Products Reducers', () => {
                     'parleg-id': new Product('parleg-id', 'Parle G')
                 }
             }
-            const action = new Add(new Product('parleg-id','Parle G'));
+            const action = new CreateProduct(new Product('parleg-id','Parle G'));
             const result = reducer(stateBefore, action);
             expect(result).toEqual(stateAfter);
         });

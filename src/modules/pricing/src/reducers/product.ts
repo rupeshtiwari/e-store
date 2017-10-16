@@ -1,6 +1,7 @@
-import { Product } from '../models/product';
-import * as pricing from '../actions/product';
 import { append, assoc, evolve } from 'ramda';
+
+import * as pricing from '../actions/product';
+import { Product } from '../models/product';
 
 export interface State {
     ids: string[],
@@ -16,10 +17,9 @@ export const initialState: State = {
 
 export function reducer(
     state = initialState,
-    action: pricing.Actions
-): State {
+    action: pricing.Actions): State {
     switch (action.type) {
-        case pricing.ADD: {
+        case pricing.CREATE_PRODUCT: {
             return evolve({
                 ids: ids => append(action.payload.id, ids),
                 entities: e => assoc(action.payload.id, action.payload, e)

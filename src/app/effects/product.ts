@@ -1,3 +1,4 @@
+import { guid } from '../shared/index';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { Actions, Effect } from '@ngrx/effects';
@@ -7,6 +8,7 @@ import * as fromRoot from 'app/reducers';
 import { empty } from 'rxjs/observable/empty';
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Rx';
+import * as fromProductActions from '../actions/product';
 
 import { State } from '../reducers/index';
 
@@ -20,14 +22,13 @@ export class ProductEffects {
 
     @Effect()
     navigateToAdd$ = this.handleNavigation('add', (r: ActivatedRouteSnapshot, state: fromRoot.State) => {
-        console.log('add', state);
-        return empty();
+        return of(new fromProductActions.CreateProductId({ id: guid() }))
     });
 
     private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: State) => Observable<any>) {
         const nav = this.actions$.ofType(ROUTER_NAVIGATION).
             map(firstSegment).
-            filter(s =>(s) && s.routeConfig.path === segment);
+            filter(s => (s) && s.routeConfig.path === segment);
 
         return nav.withLatestFrom(this.store).switchMap(a => callback(a[0], a[1])).catch(e => {
             console.log('Network error', e);

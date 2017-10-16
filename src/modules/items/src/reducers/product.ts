@@ -20,7 +20,7 @@ export function reducer(
     action: items.Actions
 ): State {
     switch (action.type) {
-        case items.ADD: {
+        case items.CREATE_PRODUCT: {
             return evolve({
                 ids: ids => append(action.payload.id, ids),
                 entities: e => assoc(action.payload.id, action.payload, e)

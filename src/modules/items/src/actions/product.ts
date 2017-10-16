@@ -1,11 +1,12 @@
 import { Product } from '../models/product';
 import { Action } from '@ngrx/store';
-export const ADD = '[Items] add';
+export const CREATE_PRODUCT = '[Items] Create Product';
 
-export class Add implements Action {
-    readonly type = ADD;
+
+export class CreateProduct implements Action {
+    readonly type = CREATE_PRODUCT;
     constructor(public payload: Product) {
     }
 }
 
-export type Actions = Add;
+export type Actions = CreateProduct;
