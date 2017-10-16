@@ -1,8 +1,17 @@
 import { fromPromise } from 'rxjs/observable/fromPromise';
-import { ActionReducer, createSelector, MetaReducer } from '@ngrx/store';
+import { ActionReducer, ActionReducerMap, createSelector, MetaReducer } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import * as fromItems from '../../modules/items/src/reducers';
 import * as fromPricing from '../../modules/pricing/src/reducers';
+import * as fromRouter from '@ngrx/router-store';
+
+export interface State {
+    routerReducer: fromRouter.RouterReducerState;
+}
+
+export const reducers: ActionReducerMap<State> = {
+    routerReducer :  fromRouter.routerReducer
+}
 
 // console.log all actions
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
@@ -31,9 +40,7 @@ export const metaReducers: MetaReducer<State>[] = !environment.production
     ? [logger]
     : [];
 
-export interface State {
 
-}
 
 export const getAllProducts = createSelector(
     fromItems.getAllItemIds,

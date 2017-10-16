@@ -22,7 +22,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Output, V
             <div>
             <label>
             Price:
-            <input #productPrice type="text" />
+            <add-price></add-price>
             </label>
         </div>
         <div>
