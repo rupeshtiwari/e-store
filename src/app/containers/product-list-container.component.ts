@@ -14,8 +14,8 @@ import * as pricing from '../../modules/pricing/src';
         template:
         `<div *ngIf="products$ | async">
             <div *ngFor="let product of products$ | async; trackBy:trackProduct">
-              <label>{{product.name}}</label>
-              <label>{{product.price}}</label>
+                <display-item [id]="product"></display-item>
+                <display-price [id]="product"></display-price>
             </div>
         </div>
         `
@@ -32,6 +32,6 @@ export class ProductListContainerComponent {
     }
 
     trackProduct(index, product) {
-        return (product) ? product.id : undefined;
+        return product;
     }
 }

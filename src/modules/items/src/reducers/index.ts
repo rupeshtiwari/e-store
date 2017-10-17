@@ -45,4 +45,7 @@ export const getAllItemIds = createSelector(
     (state) => state.ids
 );
 
-
+export const getNameById = (id: string) => createSelector(
+    getItemsEntities,
+    (entities) => entities[id].name
+)

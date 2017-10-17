@@ -10,7 +10,7 @@ export class CreateProductId implements Action {
 
 export class CreateProduct implements Action {
     readonly type = CREATE_PRODUCT;
-    constructor(public payload : {id:string}) {
+    constructor(public payload? : {id:string}) {
     }
 }
 

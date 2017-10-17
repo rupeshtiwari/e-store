@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
     selector: '<price></price>',
-    template: `<div>{{displayingPrice()}}</div>`
+    template: `<label style="color:red">{{displayingPrice()}}</label>`
     ,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -11,7 +11,7 @@ export class PriceComponent {
     price: string;
 
     displayingPrice() {
-        return `$ ${this.price}`;
+        return `$${this.price}`;
     }
 }
 

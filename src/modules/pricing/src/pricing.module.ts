@@ -1,3 +1,4 @@
+import { DisplayPriceContainerComponent } from './containers/display-price-container.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
@@ -14,7 +15,8 @@ import { reducers } from './reducers/index';
     declarations: [
         PriceComponent,
         PriceDescriptionContainerComponent,
-        AddPriceContainerComponent
+        AddPriceContainerComponent,
+        DisplayPriceContainerComponent
     ],
     imports: [
         CommonModule,
@@ -23,7 +25,8 @@ import { reducers } from './reducers/index';
     ],
     exports: [
         PriceDescriptionContainerComponent,
-        AddPriceContainerComponent
+        AddPriceContainerComponent,
+        DisplayPriceContainerComponent
     ]
 })
 export class PricingModule { }

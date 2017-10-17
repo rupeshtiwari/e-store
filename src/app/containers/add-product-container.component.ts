@@ -19,6 +19,6 @@ export class AddProductContainerComponent {
     }
 
     onAddProduct(event) {
-        this.store.dispatch(new fromActions.CreateProduct({ id: '' }));
+        this.store.dispatch(new fromActions.CreateProduct());
     }
 }

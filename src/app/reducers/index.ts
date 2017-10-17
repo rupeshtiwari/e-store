@@ -10,7 +10,7 @@ export interface State {
 }
 
 export const reducers: ActionReducerMap<State> = {
-    routerReducer :  fromRouter.routerReducer
+    routerReducer: fromRouter.routerReducer
 }
 
 // console.log all actions
@@ -40,18 +40,4 @@ export const metaReducers: MetaReducer<State>[] = !environment.production
     ? [logger]
     : [];
 
-
-
-export const getAllProducts = createSelector(
-    fromItems.getAllItemIds,
-    fromItems.getItemsEntities,
-    fromPricing.getPriceEntities,
-    (ids, itemEntities, priceEntities) =>
-        ids.map(id => (
-            {
-                id: id,
-                name: (itemEntities[id]) ? itemEntities[id].name : '',
-                price: (priceEntities[id]) ? priceEntities[id].price : ''
-            })
-        )
-);
+export const getAllProducts = fromItems.getAllItemIds;

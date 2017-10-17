@@ -1,3 +1,4 @@
+import { DisplayItemContainerComponent } from './containers/display-item-container.component';
 import { EffectsModule } from '@ngrx/effects';
 import { ItemsEffects } from './effects/product';
 import { CommonModule } from '@angular/common';
@@ -9,7 +10,8 @@ import { reducers } from './reducers/index';
 
 @NgModule({
     declarations: [
-        AddItemContainerComponent
+        AddItemContainerComponent,
+        DisplayItemContainerComponent
     ],
     imports: [
         CommonModule,
@@ -17,7 +19,8 @@ import { reducers } from './reducers/index';
         EffectsModule.forFeature([ItemsEffects])
     ],
     exports: [
-        AddItemContainerComponent
+        AddItemContainerComponent,
+        DisplayItemContainerComponent
     ]
 })
 export class ItemsModule { }
