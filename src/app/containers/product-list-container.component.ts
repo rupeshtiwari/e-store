@@ -14,8 +14,8 @@ import * as pricing from '../../modules/pricing/src';
         template:
         `<div *ngIf="products$ | async">
             <div *ngFor="let product of products$ | async; trackBy:trackProduct">
-              <label>{{product.name}}</label>
-              <label>{{product.price}}</label>
+              <display-item [id]="product.id"></display-item>
+              <display-price [id]="product.id"></display-price>
             </div>
         </div>
         `
