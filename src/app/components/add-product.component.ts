@@ -3,30 +3,21 @@ import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Output, V
 @Component(
     {
         selector: '<add-product></add-product>',
-        template: `
-        <fieldset>
-            <legend><h2>Enter Item</h2></legend>
-       
-            <div>
-                <label>
-                Name:
-                    <add-item></add-item>
-                </label>
-            </div>
-
-            <div>
-                <label>
-                 Price:
-                    <add-price></add-price>
-              </label>
-        </div>
-        <div>
-            <button (click)="addProduct($event)">Add</button>
-        </div>
-        </fieldset>
-        
-        `
-        , changeDetection: ChangeDetectionStrategy.OnPush
+        templateUrl: './add-product.component.html'
+        , changeDetection: ChangeDetectionStrategy.OnPush,
+        styles: [
+            `
+            .example-form {
+                min-width: 150px;
+                max-width: 500px;
+                width: 100%;
+              }
+              
+              .example-full-width {
+                width: 100%;
+              }
+            `
+        ]
     }
 )
 export class AddProductComponent {

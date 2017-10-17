@@ -12,12 +12,19 @@ import * as pricing from '../../modules/pricing/src';
     {
         selector: '<product-list-container></product-list-container>',
         template:
-        `<div *ngIf="products$ | async">
+        `
+        <div *ngIf="products$ | async">
             <div *ngFor="let product of products$ | async; trackBy:trackProduct">
-                <display-item [id]="product"></display-item>
-                <display-price [id]="product"></display-price>
+         <mat-card>
+                <mat-card-content>
+                    <display-item [id]="product"></display-item>
+                    <display-price [id]="product"></display-price>
+                </mat-card-content>
+                </mat-card>
             </div>
+          
         </div>
+       
         `
         , changeDetection: ChangeDetectionStrategy.OnPush
     }

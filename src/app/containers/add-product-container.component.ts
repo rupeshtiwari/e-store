@@ -7,9 +7,7 @@ import * as fromActions from '../actions/product';
     {
         selector: '<add-product-container></add-product-container>',
         template:
-        `
-        <!--<add-product (onAddProduct)="onAddProduct($event)"></add-product>-->
-        <add-product (onAddProduct)="onAddProduct($event)"></add-product>
+       `<add-product (onAddProduct)="onAddProduct($event)"></add-product>
         `
         , changeDetection: ChangeDetectionStrategy.OnPush
     }

@@ -20,19 +20,10 @@ export interface State extends fromRoot.State {
 
 export const getItemsState = createFeatureSelector<ItemsState>('items');
 
-export const getAddFormState = createSelector(
-    getItemsState,
-    (state: ItemsState) => state.addForm
-);
 
 export const getItemsEntitiesState = createSelector(
     getItemsState,
     (state) => state.items
-);
-
-export const getProductFromAddForm = createSelector(
-    getAddFormState,
-    (state: fromAddProductForm.State) => new Product(state.id, state.name)
 );
 
 export const getItemsEntities = createSelector(
@@ -49,3 +40,20 @@ export const getNameById = (id: string) => createSelector(
     getItemsEntities,
     (entities) => entities[id].name
 )
+
+
+export const getAddFormState = createSelector(
+    getItemsState,
+    (state: ItemsState) => state.addForm
+);
+
+export const getProductFromAddForm = createSelector(
+    getAddFormState,
+    fromAddProductForm.getProduct
+);
+
+export const getNameFromAddForm = createSelector(
+    getAddFormState,
+    fromAddProductForm.getName
+);
+

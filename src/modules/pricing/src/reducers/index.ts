@@ -23,16 +23,6 @@ export interface State extends fromRoot.State {
 
 export const getPricingState = createFeatureSelector<PricingState>('prices');
 
-export const getAddFormState = createSelector(
-    getPricingState,
-    (state: PricingState) => state.addForm
-);
-
-export const getProductFromAddForm = createSelector(
-    getAddFormState,
-    (state: fromAddProductForm.State) => new Product(state.id, state.price)
-);
-
 export const getPricingEntitiesState = createSelector(
     getPricingState,
     (state: PricingState) => state.prices
@@ -48,3 +38,20 @@ export const getPriceById = (id: string) => createSelector(
     (entities) =>
         entities[id].price
 );
+
+
+export const getAddFormState = createSelector(
+    getPricingState,
+    (state: PricingState) => state.addForm
+);
+
+export const getProductFromAddForm = createSelector(
+    getAddFormState,
+    fromAddProductForm.getProduct
+);
+
+export const getPriceFromAddForm = createSelector(
+    getAddFormState,
+    fromAddProductForm.getPrice
+);
+

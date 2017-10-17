@@ -1,3 +1,4 @@
+import 'hammerjs';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
@@ -23,14 +24,16 @@ import { AddProductComponent } from './components/add-product.component';
 import { AddProductContainerComponent } from './containers/add-product-container.component';
 import { AddProductHomeContainerComponent } from './containers/add-product-home-container.component';
 import { ProductListContainerComponent } from './containers/product-list-container.component';
+import { CoreModule } from './core/core.module';
 import { ProductEffects } from './effects/product';
+import { EStoreMaterialModule } from './material.module';
 import { metaReducers, reducers } from './reducers/index';
 
 const routes = [
   {
     path: 'add',
     component: AddProductHomeContainerComponent
-  } 
+  }
 ];
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ const routes = [
   ],
   imports: [
     BrowserModule,
+    EStoreMaterialModule,
     FormsModule,
     HttpModule,
     PricingModule,

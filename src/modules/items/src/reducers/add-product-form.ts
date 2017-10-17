@@ -1,7 +1,7 @@
 import { Product } from '../index';
-import * as fromAddProductForm from '../actions/add-product-form';
+import * as fromAddForm from '../actions/add-product-form';
 import { assoc, evolve, always } from 'ramda';
-import * as fromProducts from 'app/actions/product';
+import * as fromItems from '../actions/product';
 
 export interface State {
     id: string,
@@ -15,16 +15,23 @@ export const initialState: State = {
 
 export function reducer(
     state = initialState,
-    action: fromAddProductForm.Actions | fromProducts.Actions
+    action: fromAddForm.Actions | fromItems.Actions
 ): State {
     switch (action.type) {
-        case fromProducts.CREATE_PRODUCT_ID: {
+        case fromAddForm.CREATE_NEW_PRODUCT_ID: {
             return evolve({ name: always(''), id: always(action.payload.id) }, state);
         }
-        case fromAddProductForm.UPDATE_PRODUCT_FORM: {
+        case fromAddForm.UPDATE_PRODUCT_FORM: {
             return assoc('name', action.payload.name, state);
+        }
+        case fromItems.CREATE_PRODUCT: {
+            return evolve({ name: always(''), id: always('') }, state);
         }
         default:
             return state;
     }
 }
+
+export const getProduct = (state: State) => new Product(state.id, state.name);
+
+export const getName  =(state:State) => state.name;
