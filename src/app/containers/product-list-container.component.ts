@@ -1,24 +1,19 @@
-import { PricingState } from '../../modules/pricing/src/reducers/index';
-import { Observable } from 'rxjs/Rx';
-import { ElementRef, Output, ViewChildren } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { of } from 'rxjs/observable/of';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import * as fromRoot from 'app/reducers';
-import * as items from '../../modules/items/src';
-import * as pricing from '../../modules/pricing/src';
+import { NAVIGATE_PRODUCTS_PAGE, ProductId } from 'e-store-typings';
+import { Observable } from 'rxjs/Rx';
 
 @Component(
     {
         selector: '<product-list-container></product-list-container>',
         template:
         `
-        <div *ngIf="products$ | async">
-            <div *ngFor="let product of products$ | async; trackBy:trackProduct">
+        <div *ngIf="productIds$ | async">
+            <div *ngFor="let id of productIds$ | async; trackBy:trackProduct">
          <mat-card>
                 <mat-card-content>
-                    <display-item [id]="product"></display-item>
-                    <display-price [id]="product"></display-price>
+                   <es-product-name [id]="id"></es-product-name>
                 </mat-card-content>
                 </mat-card>
             </div>
@@ -29,16 +24,20 @@ import * as pricing from '../../modules/pricing/src';
         , changeDetection: ChangeDetectionStrategy.OnPush
     }
 )
-export class ProductListContainerComponent {
-    products$;
+
+export class ProductListContainerComponent implements OnInit {
+    productIds$: Observable<ProductId[]>;
     constructor(private store: Store<fromRoot.State>) {
-        this.products$ = store.select(fromRoot.getAllProducts);
-        this.products$.subscribe(p => {
-            console.log('products', p);
-        })
+
     }
 
     trackProduct(index, product) {
         return product;
+    }
+
+    public ngOnInit(): void {
+        this.productIds$ = this.store.select(fromRoot.getAllProducts);
+        
+        this.store.dispatch({ type: NAVIGATE_PRODUCTS_PAGE });
     }
 }

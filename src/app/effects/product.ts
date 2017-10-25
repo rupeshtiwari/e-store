@@ -10,7 +10,7 @@ import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Rx';
 import * as fromProductActions from '../actions/product';
 
-import { State } from '../reducers/index';
+import * as fromTypings from 'e-store-typings';
 
 function firstSegment(r: RouterNavigationAction) {
     return r.payload.routerState.root.firstChild;
@@ -18,14 +18,14 @@ function firstSegment(r: RouterNavigationAction) {
 
 @Injectable()
 export class ProductEffects {
-    constructor(private actions$: Actions, private store: Store<fromRoot.State>) { }
+    constructor(private actions$: Actions, private store: Store<fromTypings.State>) { }
 
     @Effect()
-    navigateToAdd$ = this.handleNavigation('add', (r: ActivatedRouteSnapshot, state: fromRoot.State) => {
-        return of(new fromProductActions.CreateProductId({ id: guid() }))
+    navigateToAdd$ = this.handleNavigation('add', (r: ActivatedRouteSnapshot, state: fromTypings.State) => {
+        return empty();
     });
 
-    private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: State) => Observable<any>) {
+    private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: fromTypings.State) => Observable<any>) {
         const nav = this.actions$.ofType(ROUTER_NAVIGATION).
             map(firstSegment).
             filter(s => (s) && s.routeConfig.path === segment);

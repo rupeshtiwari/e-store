@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import 'hammerjs';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
@@ -17,44 +18,32 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../environments/environment';
-import { ItemsModule } from '../modules/items/src/items.module';
-import { PricingModule } from '../modules/pricing/src/pricing.module';
+import { SalesModule } from '../modules/sales/src/sales.module';
 import { AppComponent } from './app.component';
-import { AddProductComponent } from './components/add-product.component';
-import { AddProductContainerComponent } from './containers/add-product-container.component';
-import { AddProductHomeContainerComponent } from './containers/add-product-home-container.component';
 import { ProductListContainerComponent } from './containers/product-list-container.component';
-import { CoreModule } from './core/core.module';
 import { ProductEffects } from './effects/product';
 import { EStoreMaterialModule } from './material.module';
 import { metaReducers, reducers } from './reducers/index';
+import { routes } from './routes';
 
-const routes = [
-  {
-    path: 'add',
-    component: AddProductHomeContainerComponent
-  }
-];
+
 @NgModule({
   declarations: [
-    AddProductComponent,
-    AddProductContainerComponent,
     ProductListContainerComponent,
-    AddProductHomeContainerComponent,
     AppComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     EStoreMaterialModule,
     FormsModule,
     HttpModule,
-    PricingModule,
-    ItemsModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot(reducers, { metaReducers }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule,
-    EffectsModule.forRoot([ProductEffects])
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([]),
+    SalesModule,
   ],
 
   providers: [],

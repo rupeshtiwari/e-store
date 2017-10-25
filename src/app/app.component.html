@@ -2,19 +2,16 @@
     <button md-icon-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
 </button>
-    <span>Welcome to e-Store</span>
+    <span style="margin-left:10px">Welcome to e-Store</span>
 </mat-toolbar>
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav class="example-sidenav">
         <mat-nav-list>
-            <a mat-list-item routerLink="/add"> Add Product</a>
-            <a mat-list-item routerLink="/add"> All Product </a>
+            <a mat-list-item routerLink="/products"> All Products </a>
         </mat-nav-list>
     </mat-sidenav>
 
     <div class="example-sidenav-content">
-
         <router-outlet></router-outlet>
     </div>
-
 </mat-sidenav-container>

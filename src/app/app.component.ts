@@ -1,8 +1,6 @@
-import { Store } from '@ngrx/store';
-import { of } from 'rxjs/observable/of';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import * as fromRoot from 'app/reducers';
-import * as items from '../modules/items/src';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +11,6 @@ import * as items from '../modules/items/src';
 export class AppComponent implements OnInit {
   constructor(private store: Store<fromRoot.State>) { }
   public ngOnInit(): void {
-  
   }
 }
 
