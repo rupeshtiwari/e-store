@@ -1,4 +1,8 @@
-import { CommonModule } from '@angular/common';
+import { metaReducers, reducers } from './branding/reducers/index';
+import { BrandingModule } from './branding/branding.module';
+import { AppComponent } from './branding/containers/app.component';
+import { routes } from './branding/routes';
+import { EStoreMaterialModule } from './branding/material.module';
 import 'hammerjs';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
@@ -7,6 +11,7 @@ import 'rxjs/add/operator/skip';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/takeUntil';
 
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -19,19 +24,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../environments/environment';
 import { SalesModule } from '../modules/sales/src/sales.module';
-import { AppComponent } from './app.component';
-import { ProductListContainerComponent } from './containers/product-list-container.component';
-import { ProductEffects } from './effects/product';
-import { EStoreMaterialModule } from './material.module';
-import { metaReducers, reducers } from './reducers/index';
-import { routes } from './routes';
-
 
 @NgModule({
-  declarations: [
-    ProductListContainerComponent,
-    AppComponent
-  ],
   imports: [
     CommonModule,
     BrowserModule,
@@ -43,7 +37,7 @@ import { routes } from './routes';
     StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([]),
-    SalesModule,
+    BrandingModule.forRoot(),
   ],
 
   providers: [],

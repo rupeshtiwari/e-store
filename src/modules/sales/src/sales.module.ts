@@ -11,23 +11,29 @@ import { EStoreMaterialModule } from './material.module';
 import { reducers } from './reducers';
 import { SalesApi } from './sales.api';
 
+export const COMPONENTS = [
+    CreateOrderContainerComponent,
+    ProductNameContainerComponent
+];
+
 @NgModule({
-    declarations: [
-        CreateOrderContainerComponent,
-        ProductNameContainerComponent
-    ],
+    declarations: COMPONENTS,
     imports: [
         CommonModule,
         EStoreMaterialModule,
         StoreModule.forFeature('sales', reducers),
         EffectsModule.forFeature([SalesEffects]),
     ],
-    exports: [
-        CreateOrderContainerComponent,
-        ProductNameContainerComponent
-    ],
-    providers: [
-        SalesApi
-    ]
+    exports: COMPONENTS,
+
 })
-export class SalesModule { }
+export class SalesModule {
+    static forRoot() {
+        return {
+            ngModule: SalesModule,
+            providers: [
+                SalesApi
+            ]
+        }
+    }
+}

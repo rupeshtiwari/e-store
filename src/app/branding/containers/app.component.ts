@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromRoot from 'app/reducers';
+import * as fromTypes from 'e-store-typings';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import * as fromRoot from 'app/reducers';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
-  constructor(private store: Store<fromRoot.State>) { }
+  constructor(private store: Store<fromTypes.State>) { }
   public ngOnInit(): void {
   }
 }

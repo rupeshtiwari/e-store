@@ -2,8 +2,8 @@ import * as fromRouter from '@ngrx/router-store';
 import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
 import * as fromTypes from 'e-store-typings';
 
-import { environment } from '../../environments/environment';
-import * as fromSales from '../../modules/sales/src/reducers';
+import { environment } from '../../../environments/environment';
+import * as fromSales from '../../../modules/sales/src/reducers';
 
 export * from 'e-store-typings';
 

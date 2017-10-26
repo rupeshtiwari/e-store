@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromRoot from 'app/reducers';
+import * as fromTypes from 'e-store-typings';
 import { NAVIGATE_PRODUCTS_PAGE, ProductId } from 'e-store-typings';
 import { Observable } from 'rxjs/Rx';
-
+import * as fromRoot from '../../reducers';
 @Component(
     {
         selector: '<product-list-container></product-list-container>',
@@ -27,8 +27,7 @@ import { Observable } from 'rxjs/Rx';
 
 export class ProductListContainerComponent implements OnInit {
     productIds$: Observable<ProductId[]>;
-    constructor(private store: Store<fromRoot.State>) {
-
+    constructor(private store: Store<fromTypes.State>) {
     }
 
     trackProduct(index, product) {
@@ -37,7 +36,6 @@ export class ProductListContainerComponent implements OnInit {
 
     public ngOnInit(): void {
         this.productIds$ = this.store.select(fromRoot.getAllProducts);
-        
         this.store.dispatch({ type: NAVIGATE_PRODUCTS_PAGE });
     }
 }
