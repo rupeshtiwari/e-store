@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'bc-layout',
+  selector: 'es-layout',
   template: `
     <mat-sidenav-container>
       <ng-content></ng-content>
@@ -18,5 +18,6 @@ import { Component } from '@angular/core';
     }
   `,
   ],
+  changeDetection : ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent {}

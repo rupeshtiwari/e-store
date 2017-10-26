@@ -16,7 +16,7 @@ export class SalesApi {
         }),
         Product.create({
             id: '3',
-            name: 'iPhone20'
+            name: 'iPhone'
         })
     ];
     getAllProducts() {

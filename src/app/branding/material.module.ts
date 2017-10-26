@@ -11,6 +11,8 @@ import {
     MatListModule,
     MatSidenavModule,
     MatIconModule,
+    MatLineModule,
+    
 } from '@angular/material';
 
 const MODULES = [

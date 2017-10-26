@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'es-nav-item',
@@ -6,8 +6,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <a mat-list-item [routerLink]="routerLink"
      (click)="navigate.emit()">
       <mat-icon mat-list-icon>{{ icon }}</mat-icon>
-      <span md-line><ng-content></ng-content></span>
-      <span md-line class="secondary">{{ hint }}</span>
+      <span mat-line><ng-content></ng-content></span>
+      <span mat-line class="secondary">{{ hint }}</span>
     </a>
   `,
   styles: [
@@ -17,6 +17,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     }
   `,
   ],
+  
+  changeDetection : ChangeDetectionStrategy.OnPush
 })
 export class NavItemComponent {
   @Input() icon = '';

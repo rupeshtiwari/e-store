@@ -1,11 +1,11 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromTypes from 'e-store-typings';
 import { curry, values, compose, pipe } from 'ramda';
 
 import * as fromOrders from './order';
 import * as fromProducts from './product';
 
-export const reducers = {
+export const reducers: ActionReducerMap<SalesState> = {
     orders: fromOrders.reducer,
     products: fromProducts.reducer
 }

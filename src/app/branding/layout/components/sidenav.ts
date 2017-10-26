@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'bc-sidenav',
+  selector: 'es-sidenav',
   template: `
     <mat-sidenav [opened]="open">
       <mat-nav-list>
@@ -16,6 +16,7 @@ import { Component, Input } from '@angular/core';
     }
   `,
   ],
+  changeDetection : ChangeDetectionStrategy.OnPush
 })
 export class SidenavComponent {
   @Input() open = false;

@@ -1,18 +1,27 @@
+import { reducers } from './reducers/index';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { ProductListContainerComponent } from './containers/product-list-container.component';
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from 'app/branding/containers/app.component';
 
 import { FinanceModule } from '../../modules/finance/src/finance.module';
 import { SalesModule } from '../../modules/sales/src/sales.module';
 import { NotFoundPageComponent } from './containers/not-found-page';
+import { LayoutComponent, SidenavComponent } from './layout/components';
 import { EStoreMaterialModule } from './material.module';
-import { ProductListContainerComponent } from './products/containers/product-list-container.component';
-
+import { NavItemComponent } from "app/branding/layout/components/nav-item";
+import { ToolbarComponent } from "app/branding/layout/components/toolbar";
 
 export const COMPONENTS = [
     AppComponent,
     NotFoundPageComponent,
+    LayoutComponent,
+    NavItemComponent,
+    SidenavComponent,
+    ToolbarComponent,
     ProductListContainerComponent
 ];
 
@@ -23,9 +32,12 @@ export const COMPONENTS = [
         EStoreMaterialModule,
         SalesModule.forRoot(),
         FinanceModule.forRoot(),
+        StoreModule.forFeature('branding', reducers),
+        EffectsModule.forFeature([]),
     ],
     declarations: COMPONENTS,
     exports: COMPONENTS,
+    // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class BrandingModule {
     static forRoot() {

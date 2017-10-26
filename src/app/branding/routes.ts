@@ -1,4 +1,5 @@
-import { ProductListContainerComponent } from './products/containers/product-list-container.component';
+import { ProductListContainerComponent } from './containers/product-list-container.component';
+
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [

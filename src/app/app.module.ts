@@ -1,4 +1,4 @@
-import { metaReducers, reducers } from './branding/reducers/index';
+import { metaReducers, reducers } from './index';
 import { BrandingModule } from './branding/branding.module';
 import { AppComponent } from './branding/containers/app.component';
 import { routes } from './branding/routes';

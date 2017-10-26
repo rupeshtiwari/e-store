@@ -1,17 +1,15 @@
-<mat-toolbar color="primary">
-    <button md-icon-button (click)="sidenav.toggle()">
-    <mat-icon>menu</mat-icon>
-</button>
-    <span style="margin-left:10px">Welcome to e-Store</span>
-</mat-toolbar>
-<mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav class="example-sidenav">
-        <mat-nav-list>
-            <a mat-list-item routerLink="/products"> All Products </a>
-        </mat-nav-list>
-    </mat-sidenav>
 
-    <div class="example-sidenav-content">
-        <router-outlet></router-outlet>
-    </div>
-</mat-sidenav-container>
+<es-layout>
+    <es-sidenav [open]="showSidenav$ | async">
+        <es-nav-item (navigate)="closeSidenav()" routerLink="/products" icon="product">
+            Browse Products
+        </es-nav-item>
+        <es-nav-item (navigate)="closeSidenav()" routerLink="/orders" icon="order">
+            Browse Orders
+        </es-nav-item>
+    </es-sidenav>
+    <es-toolbar (openMenu)="openSidenav()">
+        Welcome to our eStore
+    </es-toolbar>
+    <router-outlet></router-outlet>
+</es-layout>
