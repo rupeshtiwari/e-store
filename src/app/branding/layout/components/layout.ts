@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
   selector: 'es-layout',
   template: `
-    <mat-sidenav-container>
+    <mat-sidenav-container fullscreen>
       <ng-content></ng-content>
     </mat-sidenav-container>
   `,

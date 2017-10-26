@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'es-sidenav',
@@ -18,6 +18,10 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   ],
   changeDetection : ChangeDetectionStrategy.OnPush
 })
-export class SidenavComponent {
+export class SidenavComponent implements OnInit {
   @Input() open = false;
+
+    public ngOnInit(): void {
+        console.log(open);
+    }
 }

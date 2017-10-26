@@ -1,15 +1,15 @@
 
 <es-layout>
     <es-sidenav [open]="showSidenav$ | async">
-        <es-nav-item (navigate)="closeSidenav()" routerLink="/products" icon="product">
+        <es-nav-item (navigate)="closeSidenav()" routerLink="/products" icon="book">
             Browse Products
         </es-nav-item>
-        <es-nav-item (navigate)="closeSidenav()" routerLink="/orders" icon="order">
+        <!-- <es-nav-item (navigate)="closeSidenav()" routerLink="/orders" icon="order">
             Browse Orders
-        </es-nav-item>
+        </es-nav-item> -->
     </es-sidenav>
     <es-toolbar (openMenu)="openSidenav()">
-        Welcome to our eStore
+        Welcome to eStore
     </es-toolbar>
     <router-outlet></router-outlet>
 </es-layout>

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromTypes from 'e-store-typings';
 import { Observable } from "rxjs/Observable";
-import * as fromLayout from '../reducers/layout';
+import * as fromRoot  from '../reducers/index';
 import * as layout from '../actions/layout';
 
 @Component({
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<fromTypes.State>) { }
 
   public ngOnInit(): void {
-    this.showSidenav$ = this.store.select(fromLayout.getShowSidenav);
+    this.showSidenav$ = this.store.select(fromRoot.getShowSidenav);
     this.showSidenav$.subscribe(s=>console.log('app',s));
   }
   
