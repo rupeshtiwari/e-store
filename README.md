@@ -1,6 +1,7 @@
 # EStore
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
+
 Following https://github.com/Particular/Workshop.Microservices and creating client side composition using ngrx4 and angular4.
 
 ## Development server
