@@ -1,11 +1,12 @@
-import { SalesModule } from '../../modules/sales/src/sales.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from 'app/branding/containers/app.component';
 
-import { EStoreMaterialModule } from './material.module';
+import { FinanceModule } from '../../modules/finance/src/finance.module';
+import { SalesModule } from '../../modules/sales/src/sales.module';
 import { NotFoundPageComponent } from './containers/not-found-page';
+import { EStoreMaterialModule } from './material.module';
 import { ProductListContainerComponent } from './products/containers/product-list-container.component';
 
 
@@ -20,7 +21,8 @@ export const COMPONENTS = [
         CommonModule,
         RouterModule,
         EStoreMaterialModule,
-        SalesModule.forRoot()
+        SalesModule.forRoot(),
+        FinanceModule.forRoot(),
     ],
     declarations: COMPONENTS,
     exports: COMPONENTS,

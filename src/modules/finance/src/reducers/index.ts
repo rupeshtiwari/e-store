@@ -1,35 +1,35 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromTypes from 'e-store-typings';
-import { curry, values, compose, pipe } from 'ramda';
+import { compose, values } from 'ramda';
 
-import * as fromOrders from './order';
-import * as fromProducts from './product';
+import * as fromOrderItem from './order-item-price';
+import * as fromPrice from './price';
 
 export const reducers = {
-    orders: fromOrders.reducer,
-    products: fromProducts.reducer
+    orders: fromOrderItem.reducer,
+    prices: fromPrice.reducer
 }
 
-export interface SalesState {
-    orders: fromOrders.State;
-    products: fromProducts.State;
+export interface FinanceState {
+    orders: fromOrderItem.State;
+    prices: fromPrice.State;
 }
 
 export interface State extends fromTypes.State {
-    'sales': SalesState;
+    'finance': FinanceState;
 }
 
-export const getSalesState = createFeatureSelector<SalesState>('sales');
+export const getFinanceState = createFeatureSelector<FinanceState>('finance');
 
 //------ORDERS
 export const getOrderEntitiesState = createSelector(
-    getSalesState,
-    (state: SalesState) => state.orders
+    getFinanceState,
+    (state: FinanceState) => state.orders
 );
 
 export const getOrderEntities = createSelector(
     getOrderEntitiesState,
-    fromOrders.getEntities
+    fromOrderItem.getEntities
 );
 
 export const getAllOrders = createSelector(
@@ -39,7 +39,7 @@ export const getAllOrders = createSelector(
 
 export const getSelectedOrderId = createSelector(
     getOrderEntitiesState,
-    fromOrders.getSelectedId
+    fromOrderItem.getSelectedId
 );
 
 export const getSelectedOrder = createSelector(
@@ -48,49 +48,48 @@ export const getSelectedOrder = createSelector(
     (entities, selectedId) => selectedId && entities[selectedId]
 );
 
-//----Products
+//----Prices
 
-export const getProductEntitiesState = createSelector(
-    getSalesState,
-    (state: SalesState) => state.products
+export const getPriceEntitiesState = createSelector(
+    getFinanceState,
+    (state: FinanceState) => state.prices
 );
 
-export const getProductEntities = createSelector(
-    getProductEntitiesState,
-    fromProducts.getEntities
+export const getPriceEntities = createSelector(
+    getPriceEntitiesState,
+    fromPrice.getEntities
 );
 
 export const getAllProducts = createSelector(
-    getProductEntities,
+    getPriceEntities,
     (entities) => values(entities)
 );
 export const getAllProductIds = createSelector(
-    getProductEntitiesState,
-    fromProducts.getAllIds
+    getPriceEntitiesState,
+    fromPrice.getAllIds
 )
 export const getSelectedProductId = createSelector(
-    getProductEntitiesState,
-    fromProducts.getSelectedId
+    getPriceEntitiesState,
+    fromPrice.getSelectedId
 );
 
 export const getSelectedProduct = createSelector(
-    getProductEntities,
+    getPriceEntities,
     getSelectedProductId,
     (entities, selectedId) => selectedId && entities[selectedId]
 );
 
 export const getProductById = (id: fromTypes.ProductId) => createSelector(
-    getProductEntitiesState,
-    fromProducts.getProductById(id)
+    getPriceEntitiesState,
+    fromPrice.getProductById(id)
 );
 
-export const getProductNameById = (id: fromTypes.ProductId) => createSelector(
-    getProductEntitiesState,
+export const getProductPriceById = (id: fromTypes.ProductId) => createSelector(
+    getPriceEntitiesState,
     (state) => {
         return compose(
-            fromProducts.getName,
-            fromProducts.getProductById(id)
+            fromPrice.getPrice,
+            fromPrice.getProductById(id)
         )(state);
     }
-);
-
+)

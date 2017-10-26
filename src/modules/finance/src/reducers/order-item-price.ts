@@ -1,10 +1,9 @@
-import { Product } from '../models/product';
-import { Item, Order } from '../models/order';
-import { OrderId, Dictionary } from "e-store-typings";
+import { OrderItemPrice } from '../models/order-item-price';
+import { Dictionary, OrderId } from 'e-store-typings';
 
 export interface State {
     ids: OrderId[];
-    entities: Dictionary<Order>;
+    entities: Dictionary<OrderItemPrice>;
     selectedOrderId: OrderId;
 }
 

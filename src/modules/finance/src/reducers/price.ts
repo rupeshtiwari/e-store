@@ -1,12 +1,12 @@
-import { Product } from '../models/product';
-import { Item } from '../models/order';
-import { OrderId, Dictionary, ProductId } from "e-store-typings";
-import * as fromProduct from '../actions/product';
-import { map, evolve, objOf, F, reduce, T, curry, head, pipe } from 'ramda';
+import { Dictionary, ProductId } from 'e-store-typings';
+import { curry, evolve, map, reduce } from 'ramda';
+
+import * as fromPrice from '../actions/price';
+import { Price } from '../models/price';
 
 export interface State {
     ids: ProductId[];
-    entities: Dictionary<Product>;
+    entities: Dictionary<Price>;
     selectedProductId: ProductId;
     loading: boolean;
 }
@@ -18,17 +18,17 @@ export const initialState: State = {
     loading: null
 }
 
-export function reducer(state = initialState, action: fromProduct.Actions) {
+export function reducer(state = initialState, action: fromPrice.Actions) {
     switch (action.type) {
-        case fromProduct.LOAD_PRODUCTS: {
+        case fromPrice.LOAD_PRICES: {
             return evolve({ loading: _ => true }, state);
         }
-        case fromProduct.LOAD_PRODUCTS_SUCCESS: {
+        case fromPrice.LOAD_PRICES_SUCCESS: {
             return evolve({
-                ids: _ => map((product: Product) => product.id, action.payload),
+                ids: _ => map((price: Price) => price.id, action.payload),
                 entities: _ => reduce(
-                    (products: Dictionary<Product>, product: Product) => {
-                        products[product.id] = product;
+                    (products: Dictionary<Price>, price: Price) => {
+                        products[price.id] = price;
                         return products;
                     }
                     , {}
@@ -46,4 +46,4 @@ export const getSelectedId = (state: State) => state.selectedProductId;
 export const getEntities = (state: State) => state.entities;
 export const getProductById = curry((id: ProductId, state: State) => id && state.entities[id]);
 export const getAllIds = (state: State) => state.ids;
-export const getName = (product: Product) => product.name;
+export const getPrice = (price: Price) => price.price;

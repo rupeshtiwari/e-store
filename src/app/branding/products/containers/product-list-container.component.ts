@@ -14,6 +14,7 @@ import * as fromRoot from '../../reducers';
          <mat-card>
                 <mat-card-content>
                    <es-product-name [id]="id"></es-product-name>
+                   <es-product-price [id]="id"></es-product-price>
                 </mat-card-content>
                 </mat-card>
             </div>
