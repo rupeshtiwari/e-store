@@ -14,7 +14,7 @@
     "g-commit": "git commit -m 'new-update'",
     "g-push": "git subtree push --prefix dist origin gh-pages",
     "g-delete:remote": "git push origin --delete gh-pages",
-    "publish": "npm run g-delete:remote && npm run build:prod && npm run g-add && npm run g-commit && npm run g-push"
+    "publish": "npm run build:prod && npm run g-add && npm run g-push"
   },
   "private": true,
   "dependencies": {

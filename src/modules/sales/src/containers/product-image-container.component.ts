@@ -24,6 +24,6 @@ export class ProductImageContainerComponent implements OnInit {
     public ngOnInit(): void {
         this.imageLink$ = this.store.select(
             fromSales.getProductImageLinkById(this.productId))
-            .map(s => `${environment.PUBLIC_URL}${s}`);
+            .map(s => `${environment.BASE_URL}${s}`);
     }
 }
