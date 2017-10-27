@@ -7,23 +7,7 @@ import * as fromRoot from '../reducers';
 @Component(
     {
         selector: '<product-list-container></product-list-container>',
-        template:
-        `
-        <mat-card>
-        <mat-card-title>Products</mat-card-title>
-        <div *ngIf="productIds$ | async">
-             
-         <mat-card *ngFor="let id of productIds$ | async; trackBy:trackProduct">
-                <mat-card-content>
-                   <es-product-name [id]="id"></es-product-name>
-                   <es-product-price [id]="id"></es-product-price>
-                </mat-card-content>
-         </mat-card>
-           
-          </div>
-         
-       </mat-card>
-        `
+        templateUrl: './product-list-container.component.html'
         , changeDetection: ChangeDetectionStrategy.OnPush
     }
 )

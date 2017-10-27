@@ -18,7 +18,7 @@ export class FinanceEffects {
     constructor(
         private actions$: Actions,
         private store: Store<fromTypes.State>,
-        private salesApi: FinanceApi
+        private financeApi: FinanceApi
     ) {
     }
 
@@ -27,7 +27,7 @@ export class FinanceEffects {
         .ofType(fromTypes.NAVIGATE_PRODUCTS_PAGE)
         .map(toPayload)
         .switchMap(_ => {
-            return this.salesApi.getAllProducts()
+            return this.financeApi.getAllProducts()
                 .map((prods: Price[]) => new prices.LoadPricesSuccess(prods))
                 .catch((e) => of(new prices.LoadPricesFail(e)));
         });

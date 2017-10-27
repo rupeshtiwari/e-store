@@ -1,3 +1,4 @@
+import { CartModule } from '../../modules/cart/cart.module';
 import { reducers } from './reducers/index';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -32,12 +33,12 @@ export const COMPONENTS = [
         EStoreMaterialModule,
         SalesModule.forRoot(),
         FinanceModule.forRoot(),
+        CartModule.forRoot(),
         StoreModule.forFeature('branding', reducers),
         EffectsModule.forFeature([]),
     ],
     declarations: COMPONENTS,
     exports: COMPONENTS,
-    // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class BrandingModule {
     static forRoot() {

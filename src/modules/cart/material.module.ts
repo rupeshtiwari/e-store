@@ -7,8 +7,7 @@ const MODULES = [
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
-    MatInputModule,
-    
+    MatInputModule
 ]
 
 @NgModule({

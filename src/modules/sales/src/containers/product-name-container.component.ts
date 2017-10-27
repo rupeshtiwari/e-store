@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromTypes from 'e-store-typings';
 import { Observable } from 'rxjs/Observable';
 
 import { Product } from '../models/product';
@@ -18,7 +17,7 @@ export class ProductNameContainerComponent implements OnInit {
     id: string;
     name$: Observable<string>;
 
-    constructor(private store: Store<fromTypes.State>) {
+    constructor(private store: Store<fromSales.State>) {
     }
 
     public ngOnInit(): void {
