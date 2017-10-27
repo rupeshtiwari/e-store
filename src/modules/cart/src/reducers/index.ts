@@ -17,3 +17,18 @@ export interface State extends fromTypes.State {
 }
 
 export const getCartState = createFeatureSelector<CartState>('cart');
+
+export const getCartItemsState = createSelector(
+    getCartState,
+    (state) => state.cartItems
+);
+
+export const getTotalCount = createSelector(
+    getCartItemsState,
+    fromCartItem.getTotalCount
+);
+
+export const isLoading = createSelector(
+    getCartItemsState,
+    fromCartItem.isLoading
+);

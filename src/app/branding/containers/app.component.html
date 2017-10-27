@@ -1,15 +1,20 @@
-
 <es-layout>
     <es-sidenav [open]="showSidenav$ | async">
-        <es-nav-item (navigate)="closeSidenav()" routerLink="/products" icon="book">
+        <es-nav-item (navigate)="closeSidenav()" routerLink="/products" icon="dashboard" hint="click to see all of our products">
             Browse Products
         </es-nav-item>
-        <!-- <es-nav-item (navigate)="closeSidenav()" routerLink="/orders" icon="order">
-            Browse Orders
-        </es-nav-item> -->
+        <es-nav-item (navigate)="closeSidenav()" routerLink="/cart" icon="shopping cart" hint="click to see shopping cart">
+            Shopping cart
+        </es-nav-item>
     </es-sidenav>
     <es-toolbar (openMenu)="openSidenav()">
-        Welcome to eStore
+        <es-cart-icon (showCart)="onShowCart($event)" > </es-cart-icon>
     </es-toolbar>
+
+    <div *ngIf="showSpinner$|async">
+        <mat-spinner strokeWidth="3" [diameter]="50"></mat-spinner>
+    </div>
+
     <router-outlet></router-outlet>
+
 </es-layout>

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromTypes from 'e-store-typings';
 import { NAVIGATE_PRODUCTS_PAGE, ProductId } from 'e-store-typings';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import * as fromRoot from '../reducers';
 @Component(
     {

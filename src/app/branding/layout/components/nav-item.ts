@@ -17,8 +17,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
     }
   `,
   ],
-  
-  changeDetection : ChangeDetectionStrategy.OnPush
+
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavItemComponent {
   @Input() icon = '';

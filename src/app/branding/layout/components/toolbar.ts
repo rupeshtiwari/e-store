@@ -7,6 +7,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
       <button mat-icon-button (click)="openMenu.emit()">
         <mat-icon>menu</mat-icon>
       </button>
+      
       <ng-content></ng-content>
     </mat-toolbar>
   `,
