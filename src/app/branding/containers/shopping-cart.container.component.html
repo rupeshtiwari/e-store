@@ -1,0 +1,17 @@
+<div>
+    <div *ngIf="products$ | async ; else empty let products">
+        <mat-card *ngFor="let p of products; trackBy:trackProduct">
+            <mat-card-header>
+                <mat-card-title>
+                    <es-product-name [id]="p.productId"></es-product-name>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <es-product-price [id]="p.productId"></es-product-price>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <ng-template #empty>
+        cart is empty
+    </ng-template>
+</div>

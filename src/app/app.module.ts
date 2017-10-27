@@ -32,7 +32,7 @@ import { SalesModule } from '../modules/sales/src/sales.module';
     EStoreMaterialModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [],

@@ -33,5 +33,4 @@ export class SalesEffects {
                 .map((prods: Product[]) => new products.LoadProductsSuccess(prods))
                 .catch((e) => of(new products.LoadProductsFail(e)));
         });
-
 }

@@ -23,6 +23,11 @@ export const getCartItemsState = createSelector(
     (state) => state.cartItems
 );
 
+export const getAllCartItems = createSelector(
+    getCartItemsState,
+    fromCartItem.getEntities
+);
+
 export const getTotalCount = createSelector(
     getCartItemsState,
     fromCartItem.getTotalCount

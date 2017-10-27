@@ -23,6 +23,7 @@ export const reducers: ActionReducerMap<fromTypes.State> = {
 }
 
 export const getAllProducts = fromSales.getAllProductIds;
+export const getAllCartItems = fromCart.getAllCartItems;
 
 export const getBrandingState = createFeatureSelector<BrandingState>('branding');
 
