@@ -9,11 +9,12 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:prod": "ng build --prod --base-href /e-store/",
+    "build:prod": "ng build --target=production --environment=prod --base-href /e-store/",
     "g-add": "git add dist",
     "g-commit": "git commit -m 'new-update'",
     "g-push": "git subtree push --prefix dist origin gh-pages",
-    "publish": "npm run build:prod && npm run g-add && npm run g-commit && npm run g-push"
+    "g-delete:remote": "git push origin --delete gh-pages",
+    "publish": "npm run g-delete:remote && npm run build:prod && npm run g-add && npm run g-commit && npm run g-push"
   },
   "private": true,
   "dependencies": {

@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -21,7 +22,8 @@ export class ProductImageContainerComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.imageLink$ = this.store.select(fromSales.getProductImageLinkById(this.productId));
+        this.imageLink$ = this.store.select(
+            fromSales.getProductImageLinkById(this.productId))
+            .map(s => `${environment.PUBLIC_URL}${s}`);
     }
-
 }

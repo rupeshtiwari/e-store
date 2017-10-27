@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  PUBLIC_URL: 'https:\\roopkt.github.io\\e-store\\',
 };
