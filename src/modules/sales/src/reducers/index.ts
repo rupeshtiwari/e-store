@@ -86,11 +86,17 @@ export const getProductById = (id: fromTypes.ProductId) => createSelector(
 
 export const getProductNameById = (id: fromTypes.ProductId) => createSelector(
     getProductEntitiesState,
-    (state) => {
-        return compose(
-            fromProducts.getName,
-            fromProducts.getProductById(id)
-        )(state);
-    }
+    compose(
+        fromProducts.getName,
+        fromProducts.getProductById(id)
+    )
+);
+
+export const getProductImageLinkById = (id: fromTypes.ProductId) => createSelector(
+    getProductEntitiesState,
+    compose(
+        fromProducts.getImageLink,
+        fromProducts.getProductById(id)
+    )
 );
 

@@ -1,9 +1,10 @@
 import { createSelector } from '@ngrx/store';
 import * as fromTypes from 'e-store-typings';
-import { add,assoc, adjust, append, evolve, findIndex, inc, propEq, reduce } from 'ramda';
+import { add, assoc, compose, find, always, adjust, ifElse, append, evolve, findIndex,prop, inc, propEq, reduce } from 'ramda';
 
 import * as cartItem from '../actions/cart-item';
 import { CartItem } from '../models/cart-item';
+import { ProductId } from "e-store-typings";
 
 export interface State {
     entities: CartItem[];
@@ -18,7 +19,7 @@ export const initialState: State = {
 export function reducer(state = initialState, action: cartItem.Actions) {
     switch (action.type) {
         case cartItem.ADD_TO_CART: {
-            return assoc('loading',true,state);
+            return assoc('loading', true, state);
         }
         case fromTypes.ADD_TO_CART_SUCCESS: {
             const entityIndex = findIndex(propEq('productId', action.payload.productId), state.entities);
@@ -55,3 +56,10 @@ export const getTotalCount = createSelector(
 );
 
 export const isLoading = (state: State) => state.loading;
+export const getCountByProductId = (productId: ProductId) => createSelector(
+    getEntities,
+    compose(
+        prop('quantity'),
+        find(propEq('productId', productId))
+    )
+);

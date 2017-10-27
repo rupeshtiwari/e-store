@@ -3,6 +3,7 @@ import * as fromTypes from 'e-store-typings';
 import { compose, values } from 'ramda';
 
 import * as fromCartItem from './cart-item';
+import { ProductId } from "e-store-typings";
 
 export const reducers = {
     cartItems: fromCartItem.reducer,
@@ -31,6 +32,11 @@ export const getAllCartItems = createSelector(
 export const getTotalCount = createSelector(
     getCartItemsState,
     fromCartItem.getTotalCount
+);
+
+export const getCountByProductId =(productId:ProductId)=> createSelector(
+    getCartItemsState,
+    fromCartItem.getCountByProductId(productId)
 );
 
 export const isLoading = createSelector(

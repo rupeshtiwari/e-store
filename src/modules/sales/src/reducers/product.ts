@@ -47,3 +47,4 @@ export const getEntities = (state: State) => state.entities;
 export const getProductById = curry((id: ProductId, state: State) => id && state.entities[id]);
 export const getAllIds = (state: State) => state.ids;
 export const getName = (product: Product) => product.name;
+export const getImageLink = (product: Product) => product.imageLink;

@@ -6,13 +6,15 @@ import { StoreModule } from '@ngrx/store';
 import { CartApi } from './cart.api';
 import { AddToCartContainerComponent } from './containers/add-to-cart.container.component';
 import { CartIconContainerComponent } from './containers/cart-icon-container.component';
+import { ProductQuantityContainerComponent } from './containers/product-quantity-container.component';
 import { CartItemEffects } from './effects/cart-item';
 import { EStoreMaterialModule } from './material.module';
 import { reducers } from './reducers/index';
 
 export const COMPONENTS = [
     AddToCartContainerComponent,
-    CartIconContainerComponent
+    CartIconContainerComponent,
+    ProductQuantityContainerComponent
 ];
 
 @NgModule({

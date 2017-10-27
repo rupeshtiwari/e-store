@@ -1,3 +1,4 @@
+import { ProductImageContainerComponent } from './containers/product-image-container.component';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -13,7 +14,8 @@ import { SalesApi } from './sales.api';
 
 export const COMPONENTS = [
     CreateOrderContainerComponent,
-    ProductNameContainerComponent
+    ProductNameContainerComponent,
+    ProductImageContainerComponent
 ];
 
 @NgModule({

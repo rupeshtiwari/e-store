@@ -4,7 +4,7 @@ import { ProductListContainerComponent } from './containers/product-list-contain
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-    // { path: '', redirectTo: 'products', pathMatch: 'full' },
+    { path: '', redirectTo: 'products', pathMatch: 'full' },
     {
         path: 'products',
         component: ProductListContainerComponent

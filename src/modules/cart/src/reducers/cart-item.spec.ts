@@ -1,3 +1,4 @@
+import { getCountByProductId } from './cart-item';
 import { CartItem } from '../models/cart-item';
 import * as fromCart from '../reducers/cart-item';
 import * as cartItem from '../actions/cart-item';
@@ -40,6 +41,22 @@ describe('ADD_TO_CART_SUCCESS', () => {
         const action = new cartItem.AddToCartSuccess(new CartItem(id, productId, quantity));
         const result = fromCart.reducer(stateBefore, action);
         compareToEqual(result, stateAfter);
+    });
+
+    it('getCountByProductId', () => {
+        function assert(productId, expectedQuantity) {
+            const result = getCountByProductId(productId)(state)
+            expect(result).toBe(expectedQuantity);
+        }
+        const state = {
+            entities: [
+                new CartItem('1', '1', 2),
+                new CartItem('2', '2', 4)
+            ]
+            , loading: false
+        }
+        assert('2', 4);
+        assert('1', 2);
     });
 })
 
