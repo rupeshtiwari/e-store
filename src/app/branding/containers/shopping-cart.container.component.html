@@ -5,10 +5,10 @@
         <mat-card *ngFor="let p of products; trackBy:trackProduct">
             <mat-card-header>
                 <mat-card-title>
-                    Name:
                     <es-product-name [id]="p.productId"></es-product-name>
                 </mat-card-title>
             </mat-card-header>
+            <es-product-image [productId]="p.productId"></es-product-image>
             <mat-card-content>
                 Price:
                 <es-product-price [id]="p.productId"></es-product-price>
