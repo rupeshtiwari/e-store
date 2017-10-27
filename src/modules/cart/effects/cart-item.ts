@@ -22,11 +22,7 @@ export class CartItemEffects {
         .map(toPayload)
         .switchMap((cartItem: CartItem) => {
             return this.cartApi.addToCart(cartItem)
-                .map(cartItem => new fromCartItem.AddToCartSuccess(
-                    {
-                        productId: cartItem.productId,
-                        quantity: cartItem.quantity
-                    }))
+                .map(cartItem => new fromCartItem.AddToCartSuccess(cartItem))
                 .catch((e) => of(new fromCartItem.AddToCartFail(e)));
         });
 }

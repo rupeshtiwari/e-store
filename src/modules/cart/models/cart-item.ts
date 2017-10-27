@@ -1,7 +1,11 @@
 import { ProductId } from "e-store-typings";
 
 export class CartItem {
-    id: string;
-    productId : ProductId;
-    quantity : number;
+
+    constructor(
+        public id: string,
+        public productId: ProductId,
+        public quantity: number
+    ) { }
+    
 }

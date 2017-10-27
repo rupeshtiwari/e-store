@@ -1,14 +1,13 @@
-import { CartItem } from './models/cart-item';
+import 'rxjs/operator/delay';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs/observable/of';
-import { delay } from 'rxjs/operator/delay';
-import { ProductId } from "e-store-typings";
-import { Observable } from "rxjs/Observable";
+import { Subject } from 'rxjs/Subject';
+import { CartItem } from './models/cart-item';
 
 @Injectable()
 export class CartApi {
+    cartItemRepository = new Subject<CartItem>();
     addToCart(cartItem: CartItem) {
-        const s = of(cartItem).timeout(3000);
-        return s;
+        setTimeout(() => this.cartItemRepository.next(cartItem), 3000);
+        return this.cartItemRepository;
     }
 }

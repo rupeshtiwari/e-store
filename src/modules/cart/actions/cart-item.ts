@@ -19,7 +19,7 @@ export class AddToCartFail implements Action {
 
 export class AddToCartSuccess implements fromTypes.AddToCartSuccess {
     readonly type = fromTypes.ADD_TO_CART_SUCCESS;
-    constructor(public payload: { productId: ProductId, quantity: number }) { }
+    constructor(public payload: { productId: ProductId, quantity: number, id:string }) { }
 }
 
 export type Actions =
