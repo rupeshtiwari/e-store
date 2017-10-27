@@ -7,7 +7,7 @@ import { CartItem } from './models/cart-item';
 export class CartApi {
     cartItemRepository = new Subject<CartItem>();
     addToCart(cartItem: CartItem) {
-        setTimeout(() => this.cartItemRepository.next(cartItem), 1000);
+        setTimeout(() => this.cartItemRepository.next(cartItem), 500);
         return this.cartItemRepository;
     }
 }
