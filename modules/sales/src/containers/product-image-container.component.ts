@@ -1,4 +1,4 @@
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../../src/environments/environment';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';

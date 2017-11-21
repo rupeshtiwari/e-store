@@ -8,9 +8,9 @@ import { AppComponent } from 'app/branding/containers/app.component';
 import { NavItemComponent } from 'app/branding/layout/components/nav-item';
 import { ToolbarComponent } from 'app/branding/layout/components/toolbar';
 
-import { CartModule } from '../../modules/cart/src/cart.module';
-import { FinanceModule } from '../../modules/finance/src/finance.module';
-import { SalesModule } from '../../modules/sales/src/sales.module';
+import { CartModule } from '../../../modules/cart/src/cart.module';
+import { FinanceModule } from '../../../modules/finance/src/finance.module';
+import { SalesModule } from '../../../modules/sales/src/sales.module';
 import { NotFoundPageComponent } from './containers/not-found-page';
 import { ProductListContainerComponent } from './containers/product-list-container.component';
 import { LayoutComponent, SidenavComponent } from './layout/components';
