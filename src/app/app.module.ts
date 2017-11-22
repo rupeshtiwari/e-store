@@ -1,6 +1,6 @@
 import { metaReducers, reducers } from './index';
 import { BrandingModule } from './branding/branding.module';
-import { AppComponent } from './branding/containers/app.component';
+import { AppComponent } from './branding/containers/app';
 import { routes } from './branding/routes';
 import { EStoreMaterialModule } from './branding/material.module';
 import 'hammerjs';

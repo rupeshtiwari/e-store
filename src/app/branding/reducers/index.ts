@@ -2,7 +2,6 @@ import * as fromRouter from '@ngrx/router-store';
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromTypes from 'e-store-typings';
 
-import * as fromCart from '../../../../modules/cart/src/reducers';
 import * as fromSales from '../../../../modules/sales/src/reducers';
 import * as fromLayout from '../reducers/layout';
 
@@ -21,10 +20,6 @@ export const reducers: ActionReducerMap<fromTypes.State> = {
     layout: fromLayout.reducer,
     routerReducer: fromRouter.routerReducer
 };
-
-export const getAllProducts = fromSales.getAllProductIds;
-export const getAllCartItems = fromCart.getAllCartItems;
-
 export const getBrandingState = createFeatureSelector<BrandingState>('branding');
 
 export const getLayoutState = createSelector(
@@ -36,6 +31,3 @@ export const getShowSidenav = createSelector(
     getLayoutState,
     fromLayout.getShowSidenav
 );
-
-export const showSpinner = fromCart.isLoading;
-

@@ -1,0 +1,21 @@
+<div esCartItems (cartItemsFound)="cartItemsFound($event)">
+    <h2 mat-ti>Shopping Cart</h2>
+    <br>
+    <div *ngIf="productIds">
+        <mat-card *ngFor="let productId of productIds; trackBy:trackProduct">
+            <mat-card-header>
+                <mat-card-title>
+                    <es-product-name [id]="productId"></es-product-name>
+                </mat-card-title>
+            </mat-card-header>
+            <es-product-image [productId]="productId"></es-product-image>
+            <mat-card-content>
+                Price:
+                <es-product-price [id]="productId"></es-product-price>
+                Quantity:
+                <es-product-quantity [productId]="productId"></es-product-quantity>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>

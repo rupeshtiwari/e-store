@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import * as cartItem from '../actions/cart-item';
 import { CartItem } from '../models/cart-item';
-import * as fromCartItem from '../reducers';
+import * as fromRoot from '../reducers';
 
 @Component({
     selector: 'es-add-to-cart',
@@ -16,7 +16,7 @@ export class AddToCartContainerComponent implements OnInit {
     @Input()
     id: string;
 
-    constructor(private store: Store<fromCartItem.State>) {
+    constructor(private store: Store<fromRoot.State>) {
     }
 
     public ngOnInit(): void {

@@ -1,6 +1,6 @@
 import { getCountByProductId } from './cart-item';
 import { CartItem } from '../models/cart-item';
-import * as fromCart from '../reducers/cart-item';
+import * as fromCart from './cart-item';
 import * as cartItem from '../actions/cart-item';
 
 describe('ADD_TO_CART_SUCCESS', () => {

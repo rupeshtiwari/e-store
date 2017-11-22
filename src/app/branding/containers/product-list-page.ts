@@ -6,7 +6,7 @@ import { NAVIGATE_PRODUCTS_PAGE } from 'e-store-typings';
 @Component(
     {
         selector: 'es-product-list-container',
-        templateUrl: './product-list-container.component.html'
+        templateUrl: './product-list-page.html'
         , changeDetection: ChangeDetectionStrategy.OnPush
     }
 )

@@ -17,12 +17,6 @@ function firstSegment(r: RouterNavigationAction) {
 
 @Injectable()
 export class SalesEffects {
-    constructor(
-        private actions$: Actions,
-        private store: Store<fromTypes.State>,
-        private salesApi: SalesApi
-    ) {
-    }
 
     @Effect()
     loadProduct$ = this.actions$
@@ -33,4 +27,10 @@ export class SalesEffects {
                 .map((prods: Product[]) => new products.LoadProductsSuccess(prods))
                 .catch((e) => of(new products.LoadProductsFail(e)));
         });
+    constructor(
+        private actions$: Actions,
+        private store: Store<fromTypes.State>,
+        private salesApi: SalesApi
+    ) {
+    }
 }

@@ -2,13 +2,13 @@ import { Router } from '@angular/router';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromTypes from 'e-store-typings';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import * as fromRoot from '../reducers/index';
 import * as layout from '../actions/layout';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  selector: 'es-root',
+  templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [
     `
@@ -29,8 +29,6 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.showSidenav$ = this.store.select(fromRoot.getShowSidenav);
-    this.showSpinner$ = this.store.select(fromRoot.showSpinner)
-
   }
 
   closeSidenav() {

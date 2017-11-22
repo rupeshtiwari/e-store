@@ -1,14 +1,19 @@
-import { ProductIdsDirective } from './directives/productids.directive';
-import { ProceedToCheckoutContainerComponent } from './containers/proceed-to-checkout-container.component';
-import { ProductImageContainerComponent } from './containers/product-image-container.component';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { CreateOrderContainerComponent } from './containers/create-order-container.component';
-import { ProductNameContainerComponent } from './containers/product-name-container.component';
+import { CartApi } from './cart.api';
+import { AddToCartContainerComponent } from './containers/add-to-cart';
+import { CartIconContainerComponent } from './containers/cart-icon';
+import { CreateOrderContainerComponent } from './containers/create-order';
+import { ProceedToCheckoutContainerComponent } from './containers/proceed-to-checkout';
+import { ProductImageContainerComponent } from './containers/product-image';
+import { ProductNameContainerComponent } from './containers/product-name';
+import { ProductQuantityContainerComponent } from './containers/product-quantity';
+import { CartItemsDirective } from './directives/cart-items';
+import { ProductIdsDirective } from './directives/productids';
+import { CartItemEffects } from './effects/cart-item';
 import { SalesEffects } from './effects/sales.effects';
 import { EStoreMaterialModule } from './material.module';
 import { reducers } from './reducers';
@@ -20,6 +25,10 @@ export const COMPONENTS = [
     ProductImageContainerComponent,
     ProceedToCheckoutContainerComponent,
     ProductIdsDirective,
+    AddToCartContainerComponent,
+    CartIconContainerComponent,
+    ProductQuantityContainerComponent,
+    CartItemsDirective,
 ];
 
 @NgModule({
@@ -28,7 +37,7 @@ export const COMPONENTS = [
         CommonModule,
         EStoreMaterialModule,
         StoreModule.forFeature('sales', reducers),
-        EffectsModule.forFeature([SalesEffects]),
+        EffectsModule.forFeature([SalesEffects, CartItemEffects]),
     ],
     exports: COMPONENTS,
 
@@ -38,8 +47,9 @@ export class SalesModule {
         return {
             ngModule: SalesModule,
             providers: [
-                SalesApi
+                SalesApi,
+                CartApi
             ]
-        }
+        };
     }
 }

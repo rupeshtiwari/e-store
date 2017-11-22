@@ -1,5 +1,5 @@
-import { ShoppingCartContainerComponent } from './containers/shopping-cart.container.component';
-import { ProductListContainerComponent } from './containers/product-list-container.component';
+import { ShoppingCartContainerComponent } from './containers/shopping-cart-page';
+import { ProductListContainerComponent } from './containers/product-list-page';
 
 import { Routes } from '@angular/router';
 

@@ -1,12 +1,10 @@
-import { CartItem } from '../models/cart-item';
 import { Injectable } from '@angular/core';
 import { Actions, Effect, toPayload } from '@ngrx/effects';
-import { RouterNavigationAction } from '@ngrx/router-store';
-import { Store } from '@ngrx/store';
-import * as fromCartItem from '../actions/cart-item';
-import * as fromTypes from 'e-store-typings';
 import { of } from 'rxjs/observable/of';
+
+import * as fromCartItem from '../actions/cart-item';
 import { CartApi } from '../cart.api';
+import { CartItem } from '../models/cart-item';
 
 @Injectable()
 export class CartItemEffects {
@@ -24,6 +22,4 @@ export class CartItemEffects {
         private cartApi: CartApi
     ) {
     }
-
-
 }

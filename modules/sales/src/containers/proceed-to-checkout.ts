@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import * as cartItem from '../../../cart/src/actions/cart-item';
-import { CartItem } from '../../../cart/src/models/cart-item';
-import * as fromCartItem from '../../../cart/src/reducers';
+import * as cartItem from '../actions/cart-item';
+import { CartItem } from '../models/cart-item';
+import * as fromRoot from '../reducers';
 
 @Component({
     selector: 'es-proceed-to-checkout',
@@ -16,7 +16,7 @@ export class ProceedToCheckoutContainerComponent implements OnInit {
     @Input()
     id: string;
 
-    constructor(private store: Store<fromCartItem.State>) {
+    constructor(private store: Store<fromRoot.State>) {
     }
     proceed() {
 

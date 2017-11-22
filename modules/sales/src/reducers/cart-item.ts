@@ -14,7 +14,7 @@ export interface State {
 export const initialState: State = {
     entities: []
     , loading: false
-}
+};
 
 export function reducer(state = initialState, action: cartItem.Actions) {
     switch (action.type) {
@@ -48,6 +48,11 @@ export function reducer(state = initialState, action: cartItem.Actions) {
 
 export const getEntities = (state: State) => state.entities;
 
+export const getProductIds = createSelector(
+    getEntities,
+    entities => entities.map(e => e.productId)
+);
+
 export const getTotalCount = createSelector(
     getEntities,
     (entities) => reduce(
@@ -56,6 +61,7 @@ export const getTotalCount = createSelector(
 );
 
 export const isLoading = (state: State) => state.loading;
+
 export const getCountByProductId = (productId: ProductId) => createSelector(
     getEntities,
     compose(
