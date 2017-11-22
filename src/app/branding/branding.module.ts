@@ -40,6 +40,7 @@ export const COMPONENTS = [
     declarations: COMPONENTS,
     exports: COMPONENTS,
 })
+
 export class BrandingModule {
     static forRoot() {
         return {
