@@ -1,19 +1,18 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromTypes from 'e-store-typings';
-import { NAVIGATE_PRODUCTS_PAGE, ProductId } from 'e-store-typings';
-import { Observable } from 'rxjs/Observable';
-import * as fromRoot from '../reducers';
+import { NAVIGATE_PRODUCTS_PAGE } from 'e-store-typings';
+
 @Component(
     {
-        selector: '<product-list-container></product-list-container>',
+        selector: 'es-product-list-container',
         templateUrl: './product-list-container.component.html'
         , changeDetection: ChangeDetectionStrategy.OnPush
     }
 )
 
 export class ProductListContainerComponent implements OnInit {
-    productIds$: Observable<ProductId[]>;
+    productIds;
     constructor(private store: Store<fromTypes.State>) {
     }
 
@@ -21,8 +20,11 @@ export class ProductListContainerComponent implements OnInit {
         return product;
     }
 
+    productIdsFound(ids): void {
+        this.productIds = ids;
+    }
+
     public ngOnInit(): void {
-        this.productIds$ = this.store.select(fromRoot.getAllProducts);
         this.store.dispatch({ type: NAVIGATE_PRODUCTS_PAGE });
     }
 }

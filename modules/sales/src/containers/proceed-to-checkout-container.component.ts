@@ -19,7 +19,7 @@ export class ProceedToCheckoutContainerComponent implements OnInit {
     constructor(private store: Store<fromCartItem.State>) {
     }
     proceed() {
-        
+
     }
     public ngOnInit(): void {
     }

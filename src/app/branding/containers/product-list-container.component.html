@@ -1,14 +1,16 @@
-<mat-card *ngFor="let id of productIds$ | async; trackBy:trackProduct">
-    <mat-card-header>
-        <mat-card-title>
-            <es-product-name [id]="id"></es-product-name>
-        </mat-card-title>
-    </mat-card-header>
-    <es-product-image [productId]="id"></es-product-image>
-    <mat-card-content>
-        <es-product-price [id]="id"></es-product-price>
-    </mat-card-content>
-    <mat-card-actions>
-        <es-add-to-cart [id]="id"></es-add-to-cart>
-    </mat-card-actions>
-</mat-card>
+<div esProductIds (productIdsFound)="productIdsFound($event)">
+    <mat-card *ngFor="let id of productIds; trackBy:trackProduct">
+        <mat-card-header>
+            <mat-card-title>
+                <es-product-name [id]="id"></es-product-name>
+            </mat-card-title>
+        </mat-card-header>
+        <es-product-image [productId]="id"></es-product-image>
+        <mat-card-content>
+            <es-product-price [id]="id"></es-product-price>
+        </mat-card-content>
+        <mat-card-actions>
+            <es-add-to-cart [id]="id"></es-add-to-cart>
+        </mat-card-actions>
+    </mat-card>
+</div>
