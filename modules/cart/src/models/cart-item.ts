@@ -1,4 +1,4 @@
-import { ProductId } from "e-store-typings";
+import { ProductId } from 'e-store-typings';
 
 export class CartItem {
 
@@ -7,5 +7,5 @@ export class CartItem {
         public productId: ProductId,
         public quantity: number
     ) { }
-    
+
 }

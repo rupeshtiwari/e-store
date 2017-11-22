@@ -19,7 +19,7 @@ export class ShoppingCartContainerComponent implements OnInit {
     }
     public ngOnInit(): void {
         this.products$ = this.store.select(fromRoot.getAllCartItems);
-        this.products$.subscribe(s=>console.log(s));
+        this.products$.subscribe(s => console.log(s));
     }
     trackProduct(index, product) {
         return product.id;

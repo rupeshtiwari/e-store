@@ -1,10 +1,10 @@
 import { createSelector } from '@ngrx/store';
 import * as fromTypes from 'e-store-typings';
-import { add, assoc, compose, find, always, adjust, ifElse, append, evolve, findIndex,prop, inc, propEq, reduce } from 'ramda';
+import { ProductId } from 'e-store-typings';
+import { add, adjust, append, assoc, compose, evolve, find, findIndex, inc, prop, propEq, reduce } from 'ramda';
 
 import * as cartItem from '../actions/cart-item';
 import { CartItem } from '../models/cart-item';
-import { ProductId } from "e-store-typings";
 
 export interface State {
     entities: CartItem[];

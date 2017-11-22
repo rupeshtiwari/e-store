@@ -10,19 +10,20 @@ import { CartApi } from '../cart.api';
 
 @Injectable()
 export class CartItemEffects {
-    constructor(
-        private actions$: Actions,
-        private cartApi: CartApi
-    ) {
-    }
-
     @Effect()
     addToCart = this.actions$
         .ofType(fromCartItem.ADD_TO_CART)
         .map(toPayload)
         .switchMap((cartItem: CartItem) => {
             return this.cartApi.addToCart(cartItem)
-                .map(cartItem => new fromCartItem.AddToCartSuccess(cartItem))
+                .map(item => new fromCartItem.AddToCartSuccess(item))
                 .catch((e) => of(new fromCartItem.AddToCartFail(e)));
         });
+    constructor(
+        private actions$: Actions,
+        private cartApi: CartApi
+    ) {
+    }
+
+
 }
