@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import * as cartItem from '../actions/cart-item';
 import { CartItem } from '../models/cart-item';
 import * as fromRoot from '../reducers';
+import { LOADING } from 'e-store-typings';
 
 @Component({
     selector: 'es-add-to-cart',
@@ -20,6 +21,7 @@ export class AddToCartContainerComponent implements OnInit {
     }
 
     public ngOnInit(): void {
+        this.store.select(fromRoot.isCartLoading).subscribe(loading => this.store.dispatch({ type: LOADING, payload: loading }));
     }
 
     addToCart(event: KeyboardEvent): void {

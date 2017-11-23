@@ -133,3 +133,8 @@ export const getCartProductIds = createSelector(
     getCartEntitiesState,
     fromCart.getProductIds
 );
+
+export const isCartLoading = createSelector(
+    getCartEntitiesState,
+    fromCart.isLoading
+);

@@ -17,12 +17,13 @@ export interface NavigateProductsPageAction extends Action {
     payload: any;
 }
 
-export const NAVIGATE_CART_PAGE = 'NAVIGATE_CART_PAGE';
+export const LOADING = 'LOADING';
 
-export interface NavigateCartPageAction extends Action {
-    type: typeof NAVIGATE_CART_PAGE;
-    payload: [{ productId: ProductId, quantity: number }];
+export interface IsLoadingAction extends Action {
+    type: typeof LOADING;
+    payload: boolean;
 }
+
 export * from './ids';
 
 export * from './cart';
