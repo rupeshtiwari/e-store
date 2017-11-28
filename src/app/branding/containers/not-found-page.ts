@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'bc-not-found-page',
+  selector: 'es-not-found-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <mat-card>

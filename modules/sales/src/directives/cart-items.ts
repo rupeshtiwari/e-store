@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs/Subscription';
 import * as fromRoot from '../reducers';
 
 @Directive({
-    selector: '[esCartItems]'
+    selector: '[esInCartItems]'
 })
 export class CartItemsDirective implements OnDestroy, OnInit {
     @Output() cartItemsFound = new EventEmitter<ProductId[]>();
