@@ -1,7 +1,8 @@
+import { CartItem } from '../../../../modules/sales/src/models/cart-item';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromTypes from 'e-store-typings';
-import { CartItem, ProductId } from 'e-store-typings';
+import { ProductId } from 'e-store-typings';
 
 @Component(
     {
@@ -13,6 +14,7 @@ import { CartItem, ProductId } from 'e-store-typings';
 
 export class ShoppingCartContainerComponent implements OnInit {
     productIds: ProductId[];
+
     constructor(private store: Store<fromTypes.State>) {
     }
 
@@ -23,7 +25,7 @@ export class ShoppingCartContainerComponent implements OnInit {
         this.productIds = productIds;
     }
 
-    trackProduct(index: number, cartItem: CartItem) {
-        return cartItem.productId;
+    trackProduct(index: number, productId: ProductId) {
+        return productId;
     }
 }
