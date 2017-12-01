@@ -7,13 +7,19 @@ export abstract class Dictionary<T> {
 
 // tslint:disable-next-line:no-empty-interface
 export interface State {
-
 };
 
-export const NAVIGATE_PRODUCTS_PAGE = 'NAVIGATE_PRODUCTS_PAGE';
+export const NAVIGATE_PRODUCTS_PAGE = '[branding] NAVIGATE_PRODUCTS_PAGE';
 
 export interface NavigateProductsPageAction extends Action {
     type: typeof NAVIGATE_PRODUCTS_PAGE;
+    payload: any;
+}
+
+export const NAVIGATE_ORDER_SUBMIT_PAGE = '[branding]NAVIGATE_ORDER_SUBMIT_PAGE';
+
+export interface NavigateOrderSubmitPageAction extends Action {
+    type: typeof NAVIGATE_ORDER_SUBMIT_PAGE;
     payload: any;
 }
 
@@ -26,4 +32,4 @@ export interface IsLoadingAction extends Action {
 
 export * from './ids';
 
-export * from './cart';
+export * from './sales';

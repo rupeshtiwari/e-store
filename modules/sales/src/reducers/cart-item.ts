@@ -22,10 +22,17 @@ export function reducer(state = initialState, action: cartItem.Actions) {
             return assoc('loading', true, state);
         }
         case fromTypes.ADD_TO_CART_SUCCESS: {
-            const entityIndex = findIndex(propEq('productId', action.payload.productId), state.entities);
+            const payload = action.payload;
+            const entityIndex = findIndex(
+                propEq(
+                    'productId',
+                    payload.item.productId
+                ),
+                state.entities
+            );
             if (entityIndex < 0) {
                 return evolve({
-                    entities: entities => append({ ...action.payload }, entities)
+                    entities: entities => append({ ...payload.item }, entities)
                     ,
                     loading: _ => false
                 }, state);

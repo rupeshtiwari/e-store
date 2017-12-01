@@ -23,4 +23,4 @@ export class LoadProductsFail implements Action {
 export type Actions =
     |LoadProducts
     | LoadProductsSuccess
-    | LoadProductsFail
+    | LoadProductsFail;

@@ -38,18 +38,7 @@ export const getOrderEntities = createSelector(
 
 export const getAllOrders = createSelector(
     getOrderEntities,
-    (entities) => values(entities)
-);
-
-export const getSelectedOrderId = createSelector(
-    getOrderEntitiesState,
-    fromOrders.getSelectedId
-);
-
-export const getSelectedOrder = createSelector(
-    getOrderEntities,
-    getSelectedOrderId,
-    (entities, selectedId) => selectedId && entities[selectedId]
+    (entities) => entities
 );
 
 export const getProductEntitiesState = createSelector(

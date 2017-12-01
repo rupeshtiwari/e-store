@@ -10,8 +10,10 @@ import { ToolbarComponent } from 'app/branding/layout/components/toolbar';
 import { FinanceModule } from '../../../modules/finance/src/finance.module';
 import { SalesModule } from '../../../modules/sales/src/sales.module';
 import { NotFoundPageComponent } from './containers/not-found-page';
+import { OrderSubmitContainerComponent } from './containers/order-submit-page';
 import { ProductListContainerComponent } from './containers/product-list-page';
 import { ShoppingCartContainerComponent } from './containers/shopping-cart-page';
+import { BrandingEffects } from './effects/branding';
 import { LayoutComponent, SidenavComponent } from './layout/components';
 import { EStoreMaterialModule } from './material.module';
 import { reducers } from './reducers/index';
@@ -25,6 +27,7 @@ export const COMPONENTS = [
     ToolbarComponent,
     ProductListContainerComponent,
     ShoppingCartContainerComponent,
+    OrderSubmitContainerComponent,
 ];
 
 @NgModule({
@@ -35,7 +38,7 @@ export const COMPONENTS = [
         SalesModule.forRoot(),
         FinanceModule.forRoot(),
         StoreModule.forFeature('branding', reducers),
-        EffectsModule.forFeature([]),
+        EffectsModule.forFeature([BrandingEffects]),
     ],
     declarations: COMPONENTS,
     exports: COMPONENTS,

@@ -1,6 +1,8 @@
-import { ProductId } from 'e-store-typings';
+import { OrderId, ProductId } from 'e-store-typings';
 
-export class CartItem {
+import { Product } from './product';
+
+export class OrderItem {
     constructor(
         public id: string,
         public productId: ProductId,

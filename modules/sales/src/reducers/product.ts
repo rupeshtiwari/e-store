@@ -1,6 +1,5 @@
 import { Product } from '../models/product';
-import { Item } from '../models/order';
-import { OrderId, Dictionary, ProductId } from "e-store-typings";
+import { OrderId, Dictionary, ProductId } from 'e-store-typings';
 import * as fromProduct from '../actions/product';
 import { map, evolve, objOf, F, reduce, T, curry, head, pipe } from 'ramda';
 
@@ -16,7 +15,7 @@ export const initialState: State = {
     entities: {},
     selectedProductId: null,
     loading: null
-}
+};
 
 export function reducer(state = initialState, action: fromProduct.Actions) {
     switch (action.type) {
