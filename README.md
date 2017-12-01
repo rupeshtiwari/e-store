@@ -5,7 +5,10 @@ See the app live in action here https://roopkt.github.io/e-store
 This project is inspired by Service Oriented Architecture (SOA) philosophy. 
 There is an initiative going on to create prototype SOA here in this link https://github.com/Particular/Workshop.Microservices
 
-This project is following the above prototype and trying to solve client side composition using ngrx4 and angular4 technology.
+This project is following the above prototype and trying to solve client side composition using mainly below libraries:
+
+ * Angular Redux Library (ngrx4) https://github.com/ngrx/platform
+ * Angular4 
 
 ## Development server
 
