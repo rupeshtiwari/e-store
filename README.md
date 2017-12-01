@@ -1,11 +1,27 @@
-# EStore
+# e-Store
+
+e-Store is a prototype client side application which demonstrates online shoping application which has below use cases implementations:
+  * Listing Items for online sales
+  * Adding Item to Cart
+  * View Cart
+  * Checkout
+  * Submit Order
+
+There are 3 modules coming from below services:
+
+ * Sales
+ * Finance and 
+ * Customers
+ 
+ There is Branding Modules which takes all of the above 3 modules code and create composition.
+ ItOps module is also there which is not used yet. 
 
 See the app live in action here https://roopkt.github.io/e-store
 
 This project is inspired by Service Oriented Architecture (SOA) philosophy. 
 There is an initiative going on to create prototype SOA here in this link https://github.com/Particular/Workshop.Microservices
 
-This project is following the above prototype and trying to solve client side composition using mainly below libraries:
+This project is following SOA principle and trying to solve client side composition using mainly below libraries:
 
  * Angular Redux Library (ngrx4) https://github.com/ngrx/platform
  * Angular4 
