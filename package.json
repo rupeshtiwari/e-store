@@ -13,7 +13,6 @@
     "build:prod": "ng build --environment=prod --base-href /e-store/",
     "g:delete": "git push origin --delete gh-pages",
     "g:add": "git add dist",
-    "g:commit": "git commit -m 'new-update'",
     "g:push": "git subtree push --prefix dist origin gh-pages",
     "g:publish": "npm run build:prod && npm run g:add && npm run g:push"
   },
