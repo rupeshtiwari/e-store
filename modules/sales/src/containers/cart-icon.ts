@@ -11,8 +11,8 @@ import * as fromRoot from '../reducers';
     template:
     `
     <button mat-icon-button color="accent" (click)="onShowCartClick($event)">
-        <mat-icon>shopping cart</mat-icon>
         {{count$|async}}
+        <i class="material-icons">&#xE547;</i>
     </button>
     `,
     changeDetection: ChangeDetectionStrategy.OnPush

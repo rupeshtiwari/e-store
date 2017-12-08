@@ -14,7 +14,9 @@ import * as fromRoot from '../reducers';
 @Component({
     selector: 'es-proceed-to-checkout',
     template: `
-        <button (click)="proceedToCheckout$.next($event)" mat-button mat-raised-button color="primary">Proceed To Checkout</button>
+        <button (click)="proceedToCheckout$.next($event)" mat-button mat-raised-button color="primary">Proceed To Checkout
+        <i class="material-icons">&#xE037;</i>
+        </button>
     `,
     changeDetection: ChangeDetectionStrategy.OnPush
 })

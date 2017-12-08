@@ -7,7 +7,7 @@ import { ProductId } from 'e-store-typings';
 @Component(
     {
         selector: 'es-order-submit-page',
-        template: 'Submit Order is in progress...'
+        templateUrl: './order-submit-page.html'
         , changeDetection: ChangeDetectionStrategy.OnPush
     }
 )
