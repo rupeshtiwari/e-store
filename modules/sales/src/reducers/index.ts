@@ -7,7 +7,6 @@ import * as fromCart from './cart-item';
 import * as fromOrders from './order';
 import * as fromProducts from './product';
 
-
 export interface SalesState {
     orders: fromOrders.State;
     products: fromProducts.State;

@@ -18,6 +18,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     }
   `,
   ],
-  changeDetection : ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LayoutComponent {}
+export class LayoutComponent { }

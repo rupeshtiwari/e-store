@@ -1,3 +1,4 @@
+import { CustomersModule } from '../../../modules/customers/src/customers.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -37,6 +38,7 @@ export const COMPONENTS = [
         EStoreMaterialModule,
         SalesModule.forRoot(),
         FinanceModule.forRoot(),
+        CustomersModule.forRoot(),
         StoreModule.forFeature('branding', reducers),
         EffectsModule.forFeature([BrandingEffects]),
     ],

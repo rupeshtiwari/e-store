@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
 @Component({
   selector: 'es-toolbar',
   template: `
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="example">
       <button mat-icon-button (click)="openMenu.emit()">
         <mat-icon>menu</mat-icon>
       </button>
@@ -11,7 +11,17 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
       <ng-content></ng-content>
     </mat-toolbar>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: [
+    `
+    .example {
+      display: flex;
+      align-items: left;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    `
+  ]
 })
 export class ToolbarComponent {
   @Output() openMenu = new EventEmitter();

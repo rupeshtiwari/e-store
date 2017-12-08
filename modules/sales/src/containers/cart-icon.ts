@@ -10,9 +10,9 @@ import * as fromRoot from '../reducers';
     selector: 'es-cart-icon',
     template:
     `
-    <button mat-icon-button color="accent" (click)="onShowCartClick($event)">
-        <mat-icon>shopping cart</mat-icon>
-        {{count$|async}}
+    <button mat-mini-fab (click)="onShowCartClick($event)">
+        <mat-icon>shopping_cart</mat-icon>
+            {{count$|async}}
     </button>
     `,
     changeDetection: ChangeDetectionStrategy.OnPush

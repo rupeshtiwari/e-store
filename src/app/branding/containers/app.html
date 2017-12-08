@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+rel="stylesheet">
 <es-layout>
     <es-sidenav [open]="showSidenav$ | async">
         <es-nav-item (navigate)="closeSidenav()" routerLink="/products" icon="dashboard" hint="click to see all of our products">
@@ -9,12 +11,13 @@
     </es-sidenav>
     <es-toolbar (openMenu)="openSidenav()">
         <es-cart-icon (showCart)="onShowCart()"> </es-cart-icon>
+        <es-user-icon> </es-user-icon>
     </es-toolbar>
 
     <div *ngIf="showSpinner$|async">
         <mat-spinner strokeWidth="3" [diameter]="50"></mat-spinner>
     </div>
-
-    <router-outlet></router-outlet>
-
+    <div style="margin-left:50px">
+        <router-outlet></router-outlet>
+    </div>
 </es-layout>
