@@ -11,7 +11,7 @@ rel="stylesheet">
     </es-sidenav>
     <es-toolbar (openMenu)="openSidenav()">
         <es-cart-icon (showCart)="onShowCart()"> </es-cart-icon>
-        <es-user-icon> </es-user-icon>
+        <es-user-icon (showUser)="onShowUser()"> </es-user-icon>
     </es-toolbar>
 
     <div *ngIf="showSpinner$|async">

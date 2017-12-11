@@ -33,3 +33,4 @@ export interface IsLoadingAction extends Action {
 export * from './ids';
 
 export * from './sales';
+export * from './customers';

@@ -1,3 +1,4 @@
+import { LoginPageContainerComponent } from './containers/login-page';
 import { CustomersModule } from '../../../modules/customers/src/customers.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -29,6 +30,7 @@ export const COMPONENTS = [
     ProductListContainerComponent,
     ShoppingCartContainerComponent,
     OrderSubmitContainerComponent,
+    LoginPageContainerComponent,
 ];
 
 @NgModule({

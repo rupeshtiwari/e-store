@@ -23,6 +23,13 @@ export class BrandingEffects {
             }
         }));
 
+    @Effect({ dispatch: false })
+    loginRedirect$ = this.actions$
+        .ofType(fromTypes.LOGIN_REDIRECT, fromTypes.LOGOUT)
+        .do(authed => {
+            this.router.navigate(['/login']);
+        });
+
     constructor(
         private actions$: Actions,
         private store: Store<fromTypes.State>,

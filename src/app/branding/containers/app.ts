@@ -45,6 +45,10 @@ export class AppComponent implements OnInit {
   onShowCart() {
     this.router.navigate(['cart']);
   }
+
+  onShowUser() {
+    this.router.navigate(['user']);
+  }
 }
 
 
