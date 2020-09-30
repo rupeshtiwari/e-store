@@ -1,20 +1,21 @@
 # e-Store
 
-e-Store is a prototype client side application which demonstrates online shoping application which has below use cases implementations:
+1. e-Store is a prototype client side application which demonstrates online shoping application which has below use cases implementations:
+
   * Listing Items for online sales
   * Adding Item to Cart
   * View Cart
   * Checkout
   * Submit Order
 
-There are 3 modules coming from below services:
+2. There are 3 modules coming from below services:
 
  * Sales
  * Finance and 
  * Customers
  
- There is Branding Modules which takes all of the above 3 modules code and create composition.
- ItOps module is also there which is not used yet. 
+3. There is Branding Modules which takes all of the above 3 modules code and create composition.
+5. ItOps module is also there which is not used yet. 
 
 See the app live in action here https://roopkt.github.io/e-store
 
